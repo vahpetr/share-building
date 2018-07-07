@@ -23,12 +23,12 @@ const compute = array => {
     sum += value;
   }
 
-  if (sum === 0) {
-    return numbers.map(value => value.toFixed(3));
-  }
-
   if (sum === Infinity) {
     throw new Error(`Sum overflowing`);
+  }
+
+  if (sum === 0) {
+    return numbers.map(value => value.toFixed(3));
   }
 
   const divider = sum / 100;

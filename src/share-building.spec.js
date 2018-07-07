@@ -14,7 +14,7 @@ describe("share-building spec", () => {
   });
 
   it("check compute logic 3", () => {
-    const output = compute([Number.MAX_VALUE.toString()]);
+    const output = compute([`${Number.MAX_VALUE}`]);
     const desired = ["100.000"];
     expect(output).toEqual(expect.arrayContaining(desired));
   });
@@ -50,28 +50,19 @@ describe("share-building spec", () => {
   });
 
   it("null array an exception test", () => {
-    const task = () => {
-      compute(null);
-    };
-
+    const task = () => compute(null);
     expect(task).toThrowError(/^Not support nullable array$/);
     expect(task).toThrowError(Error);
   });
 
   it("sum overflowing an exception test", () => {
-    const task = () => {
-      compute([`${Number.MAX_VALUE}`, `${Number.MAX_VALUE}`]);
-    };
-
+    const task = () => compute([`${Number.MAX_VALUE}`, `${Number.MAX_VALUE}`]);
     expect(task).toThrowError(/^Sum overflowing$/);
     expect(task).toThrowError(Error);
   });
 
   it("array max length an exception test", () => {
-    const task = () => {
-      compute({ length: 7e6 + 1 });
-    };
-
+    const task = () => compute({ length: 7e6 + 1 });
     expect(task).toThrowError(/^Array length can't greater than 7000000$/);
     expect(task).toThrowError(Error);
   });
