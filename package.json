@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest --no-cache --logHeapUsage",
+    "test": "jest --no-cache --coverage --logHeapUsage",
     "perf": "node src/share-building.perf.js"
   },
   "author": "",

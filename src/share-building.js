@@ -32,16 +32,19 @@ const compute = array => {
   }
 
   const divider = sum / 100;
-  if (divider == 0) {
-    throw new Error(`Сan not divide by 0`);
-  }
-
-  const result = [];
+  const results = [];
+  let remainder = 100;
   for (let value of numbers) {
-    result.push((value / divider).toFixed(3));
+    const result = value / divider;
+    results.push(result.toFixed(3));
+    remainder -= result;
   }
 
-  return result;
+  if(remainder != 0) {
+    results.push(Math.abs(remainder));
+  }
+
+  return results;
 };
 
 module.exports = compute;

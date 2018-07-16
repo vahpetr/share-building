@@ -43,6 +43,13 @@ describe("share-building spec", () => {
     expect(output).toEqual(expect.arrayContaining(desired));
   });
 
+  // I don't know how this must be work
+  it("check compute logic 8. add reminder", () => {
+    const output = compute(["1", "1", "1"]);
+    const desired = ["33.333", "33.333", "33.333", 1.4210854715202004e-14];
+    expect(output).toEqual(expect.arrayContaining(desired));
+  });
+
   it("empty array test", () => {
     const output = compute([]);
     const desired = [];
